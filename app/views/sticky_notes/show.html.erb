@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sticky_note %>
+
+<div>
+  <%= link_to "Edit this sticky note", edit_sticky_note_path(@sticky_note) %> |
+  <%= link_to "Back to sticky notes", sticky_notes_path %>
+
+  <%= button_to "Destroy this sticky note", @sticky_note, method: :delete %>
+</div>

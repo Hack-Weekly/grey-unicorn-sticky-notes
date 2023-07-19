@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sticky notes</h1>
+
+<div id="sticky_notes">
+  <% @sticky_notes.each do |sticky_note| %>
+    <%= render sticky_note %>
+    <p>
+      <%= link_to "Show this sticky note", sticky_note %>
+    </p>
+  <% end %>
+</div>
+<% if @user %>
+  <%= link_to "New sticky note", new_user_sticky_note_path(user_id: @user.id) %>
+<% end %>

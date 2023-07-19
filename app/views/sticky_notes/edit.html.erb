@@ -1,0 +1,10 @@
+<h1>Editing sticky note</h1>
+
+<%= render "form", stick_note: @sticky_note %>
+
+<br>
+
+<div>
+  <%= link_to "Show this sticky note", @sticky_note %> |
+  <%= link_to "Back to sticky notes", sticky_notes_path %>
+</div>

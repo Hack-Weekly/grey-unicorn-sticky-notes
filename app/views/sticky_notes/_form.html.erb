@@ -1,0 +1,27 @@
+<%= form_with(model: stick_note) do |form| %>
+  <% if sticky_note.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sticky_note.errors.count, "error") %> prohibited this sticky_note from being saved:</h2>
+
+      <ul>
+        <% sticky_note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
