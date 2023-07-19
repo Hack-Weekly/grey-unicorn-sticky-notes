@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -65,6 +65,33 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+gem "faraday"
+gem "devise", "~> 4.9"
+gem "petergate", "~> 3.0"
+gem "inline_svg", "~> 1.8"
+gem "mini_magick", "~> 4.11"
+gem "omniauth-rails_csrf_protection"
+gem "omniauth-github", "~> 2.0"
+gem "omniauth-google-oauth2"
+gem "carrierwave-aws", "~> 1.5"
+gem "font-awesome-sass", "~> 5.15"
+gem "font-awesome-rails"
+gem "aws-sdk-s3", require: false
+gem 'pundit', '~> 2.3', '>= 2.3.1'
+gem 'rolify', '~> 6.0', '>= 6.0.1'
+
+group :development, :test do
+  gem "dotenv-rails"
+  gem "pry-byebug"
+  gem "rubocop", require: false         # Enforces Ruby style conventions.
+  gem "rubocop-performance"             # RuboCop performance rules.
+  gem "rubocop-rails"                   # RuboCop Rails rules.
+  gem "rubocop-rspec"                   # RuboCop RSpec rules.
+end
+
+group :development do
+  gem "annotate"
 end
 
 group :test do
