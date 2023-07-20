@@ -48,6 +48,7 @@ class StickyNotesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_sticky_note
       @sticky_note = StickyNote.find(params[:id])
