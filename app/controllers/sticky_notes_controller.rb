@@ -1,15 +1,13 @@
 class StickyNotesController < ApplicationController
   before_action :set_sticky_note, only: [:show, :edit, :update, :destroy]
-  before_action :set_user
 
   # GET /sticky_notes
   def index
-    @sticky_notes = StickyNote.all
+    @sticky_notes = policy_scope(StickyNote)
   end
 
   # GET /sticky_notes/1
-  def show
-  end
+  def show; end
 
   # GET /sticky_notes/new
   def new
@@ -17,8 +15,7 @@ class StickyNotesController < ApplicationController
   end
 
   # GET /sticky_notes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /stick_notes
   def create
@@ -50,12 +47,6 @@ class StickyNotesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_sticky_note
     @sticky_note = StickyNote.find(params[:id])
-  end
-
-  def set_user
-    if @user
-      @user = User.find(params[:user_id])
-    end
   end
 
   # Only allow a trusted parameter "white list" through.

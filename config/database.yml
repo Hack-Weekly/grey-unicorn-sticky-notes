@@ -22,6 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("PG_USERNAME") { "postgres" } %>
   password: <%= ENV.fetch("PG_PASSWORD") { "" } %>
+
 development:
   <<: *default
   database: grey_unicorn_sticky_notes_development
