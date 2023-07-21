@@ -22,16 +22,11 @@ module ApplicationHelper
 
     def flash_class(level)
       case level.to_sym
-      when :notice
-        "bg-primary"
-      when :success
-        "bg-success"
-      when :alert
-        "bg-warning"
-      when :error
-        "bg-danger"
-      else
-        "bg-info"
+      when :notice  then "bg-primary"
+      when :success then "bg-success"
+      when :alert   then "bg-warning"
+      when :error   then "bg-danger"
+      else "bg-info"
       end
     end
 
