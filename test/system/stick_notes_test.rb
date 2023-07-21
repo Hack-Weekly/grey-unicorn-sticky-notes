@@ -2,20 +2,20 @@ require "application_system_test_case"
 
 class StickNotesTest < ApplicationSystemTestCase
   setup do
-    @stick_note = stick_notes(:one)
+    @sticky_note = sticky_notes(:one)
   end
 
   test "visiting the index" do
-    visit stick_notes_url
+    visit sticky_notes_url
     assert_selector "h1", text: "Stick notes"
   end
 
   test "should create stick note" do
-    visit stick_notes_url
+    visit sticky_notes_url
     click_on "New stick note"
 
-    fill_in "Body", with: @stick_note.body
-    fill_in "Title", with: @stick_note.title
+    fill_in "Body", with: @sticky_note.body
+    fill_in "Title", with: @sticky_note.title
     click_on "Create Stick note"
 
     assert_text "Stick note was successfully created"
@@ -23,11 +23,11 @@ class StickNotesTest < ApplicationSystemTestCase
   end
 
   test "should update Stick note" do
-    visit stick_note_url(@stick_note)
+    visit sticky_note_url(@sticky_note)
     click_on "Edit this stick note", match: :first
 
-    fill_in "Body", with: @stick_note.body
-    fill_in "Title", with: @stick_note.title
+    fill_in "Body", with: @sticky_note.body
+    fill_in "Title", with: @sticky_note.title
     click_on "Update Stick note"
 
     assert_text "Stick note was successfully updated"
@@ -35,7 +35,7 @@ class StickNotesTest < ApplicationSystemTestCase
   end
 
   test "should destroy Stick note" do
-    visit stick_note_url(@stick_note)
+    visit sticky_note_url(@sticky_note)
     click_on "Destroy this stick note", match: :first
 
     assert_text "Stick note was successfully destroyed"

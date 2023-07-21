@@ -2,47 +2,47 @@ require "test_helper"
 
 class StickNotesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @stick_note = stick_notes(:one)
+    @sticky_note = sticky_notes(:one)
   end
 
   test "should get index" do
-    get stick_notes_url
+    get sticky_notes_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_stick_note_url
+    get new_sticky_note_url
     assert_response :success
   end
 
-  test "should create stick_note" do
+  test "should create sticky_note" do
     assert_difference("StickNote.count") do
-      post stick_notes_url, params: { stick_note: { body: @stick_note.body, title: @stick_note.title } }
+      post sticky_notes_url, params: { sticky_note: { body: @sticky_note.body, title: @sticky_note.title } }
     end
 
-    assert_redirected_to stick_note_url(StickNote.last)
+    assert_redirected_to sticky_note_url(StickNote.last)
   end
 
-  test "should show stick_note" do
-    get stick_note_url(@stick_note)
+  test "should show sticky_note" do
+    get sticky_note_url(@sticky_note)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_stick_note_url(@stick_note)
+    get edit_sticky_note_url(@sticky_note)
     assert_response :success
   end
 
-  test "should update stick_note" do
-    patch stick_note_url(@stick_note), params: { stick_note: { body: @stick_note.body, title: @stick_note.title } }
-    assert_redirected_to stick_note_url(@stick_note)
+  test "should update sticky_note" do
+    patch sticky_note_url(@sticky_note), params: { sticky_note: { body: @sticky_note.body, title: @sticky_note.title } }
+    assert_redirected_to sticky_note_url(@sticky_note)
   end
 
-  test "should destroy stick_note" do
+  test "should destroy sticky_note" do
     assert_difference("StickNote.count", -1) do
-      delete stick_note_url(@stick_note)
+      delete sticky_note_url(@sticky_note)
     end
 
-    assert_redirected_to stick_notes_url
+    assert_redirected_to sticky_notes_url
   end
 end

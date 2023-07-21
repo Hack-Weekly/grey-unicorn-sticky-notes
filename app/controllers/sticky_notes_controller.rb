@@ -17,7 +17,7 @@ class StickyNotesController < ApplicationController
   # GET /sticky_notes/1/edit
   def edit; end
 
-  # POST /stick_notes
+  # POST /sticky_notes
   def create
     @sticky_note = @user.sticky_notes.build(sticky_note_params)
     if @sticky_note.save
@@ -38,7 +38,7 @@ class StickyNotesController < ApplicationController
 
   # DELETE /sticky_notes/1
   def destroy
-    @stick_note.destroy
+    @sticky_note.destroy
     redirect_to sticky_notes_url, notice: 'Sticky note was successfully destroyed.'
   end
 
