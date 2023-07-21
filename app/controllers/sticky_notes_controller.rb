@@ -11,8 +11,7 @@ class StickyNotesController < ApplicationController
 
   # GET /sticky_notes/new
   def new
-    @user = User.find(params[:user_id])
-    @sticky_note = @user.sticky_notes.new
+    @sticky_note = @user.sticky_notes.build
   end
 
   # GET /sticky_notes/1/edit
@@ -20,10 +19,9 @@ class StickyNotesController < ApplicationController
 
   # POST /stick_notes
   def create
-    @sticky_note = StickyNote.new(sticky_note_params)
-
+    @sticky_note = @user.sticky_notes.build(sticky_note_params)
     if @sticky_note.save
-      redirect_to @sticky_note, notice: 'Sticky note was successfully created.'
+      redirect_to user_path(@user), notice: 'Sticky note created successfully.'
     else
       render :new
     end
