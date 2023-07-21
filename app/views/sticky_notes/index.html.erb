@@ -6,7 +6,7 @@
   <% @sticky_notes.each do |sticky_note| %>
     <%= render sticky_note %>
     <p>
-      <%= link_to "Show this sticky note", sticky_note %>
+      <%= link_to "Show this sticky note", user_sticky_note_path(current_user, sticky_note) %>
     </p>
   <% end %>
 </div>
