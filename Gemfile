@@ -78,6 +78,7 @@ gem "font-awesome-sass", "~> 5.15"
 gem "font-awesome-rails"
 gem "aws-sdk-s3", require: false
 gem 'pundit', '~> 2.3', '>= 2.3.1'
+gem 'rolify', '~> 6.0', '>= 6.0.1'
 
 group :development, :test do
   gem "dotenv-rails"
