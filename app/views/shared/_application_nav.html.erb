@@ -25,7 +25,7 @@
       <div class="navbar-item navbar-end">
       <% if user_signed_in? %>
         <%= link_to edit_user_registration_path(current_user) do %>
-          <span><%= profile_helper(current_user) %></span>
+          <span><%= gravatar_helper(current_user) %></span>
         <% end %>
       <% end %>
       </div>
