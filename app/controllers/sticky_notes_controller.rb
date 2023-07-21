@@ -12,6 +12,7 @@ class StickyNotesController < ApplicationController
   # GET /sticky_notes/new
   def new
     @sticky_note = current_user.sticky_notes.build
+    authorize(@sticky_note)
   end
 
   # GET /sticky_notes/1/edit
@@ -47,6 +48,7 @@ class StickyNotesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_sticky_note
     @sticky_note = StickyNote.find(params[:id])
+    authorize(@sticky_note)
   end
 
   # Only allow a trusted parameter "white list" through.
