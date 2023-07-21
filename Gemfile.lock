@@ -224,8 +224,6 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    petergate (3.0.0)
-      activerecord (> 4.0.0)
     pg (1.5.3)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -388,7 +386,6 @@ DEPENDENCIES
   omniauth-github (~> 2.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  petergate (~> 3.0)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)

@@ -1,6 +1,5 @@
 class StickyNotesController < ApplicationController
   before_action :set_sticky_note, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
 
   # GET /sticky_notes
   def index

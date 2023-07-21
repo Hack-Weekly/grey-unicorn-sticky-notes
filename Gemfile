@@ -68,7 +68,6 @@ group :development do
 end
 gem "faraday"
 gem "devise", "~> 4.9"
-gem "petergate", "~> 3.0"
 gem "inline_svg", "~> 1.8"
 gem "mini_magick", "~> 4.11"
 gem "omniauth-rails_csrf_protection"
