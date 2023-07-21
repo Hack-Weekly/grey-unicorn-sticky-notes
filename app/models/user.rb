@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :sticky_notes, as: :author, dependent: :destroy
-  has_many :roles
+  has_many :roles, dependent: :destroy
 
   validates :name, presence: true
 
