@@ -9,7 +9,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   has_many :comments, dependent: :destroy
-  has_many :sticky_notes, as: :author, dependent: :destroy
+  has_many :sticky_notes, dependent: :destroy
 
   validates :name, presence: true
   validate :must_have_a_role, on: :update
