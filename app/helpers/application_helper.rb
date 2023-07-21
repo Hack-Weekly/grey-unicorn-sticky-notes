@@ -30,20 +30,6 @@ module ApplicationHelper
       end
     end
 
-    def authorized_to
-      logged_in?(:admin) || (logged_in?(:author) && recipe.author(:current_user))
-    end
-
-    def author_type
-      if logged_in?(:admin)
-        :admin
-      elsif logged_in?(:user)
-        :user
-      else
-        :guest
-      end
-    end
-
     def profile_helper(user)
       if user.profile.file.nil?
         gravatar_helper(user)
