@@ -1,6 +1,6 @@
 class StickyNotesController < ApplicationController
   before_action :set_sticky_note, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  before_action :set_user
 
   # GET /sticky_notes
   def index
@@ -13,8 +13,7 @@ class StickyNotesController < ApplicationController
 
   # GET /sticky_notes/new
   def new
-    @user = User.find(params[:user_id])
-    @sticky_note = @user.sticky_notes.new
+    @sticky_note = @user.sticky_notes.build
   end
 
   # GET /sticky_notes/1/edit
@@ -23,10 +22,9 @@ class StickyNotesController < ApplicationController
 
   # POST /stick_notes
   def create
-    @sticky_note = StickyNote.new(sticky_note_params)
-
+    @sticky_note = @user.sticky_notes.build(sticky_note_params)
     if @sticky_note.save
-      redirect_to @sticky_note, notice: 'Sticky note was successfully created.'
+      redirect_to user_path(@user), notice: 'Sticky note created successfully.'
     else
       render :new
     end
@@ -49,13 +47,19 @@ class StickyNotesController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sticky_note
-      @sticky_note = StickyNote.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sticky_note
+    @sticky_note = StickyNote.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def sticky_note_params
-      params.require(:sticky_note).permit(:title, :body, :user_id)
+  def set_user
+    if @user
+      @user = User.find(params[:user_id])
     end
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def sticky_note_params
+    params.require(:sticky_note).permit(:title, :body, :user_id)
+  end
 end

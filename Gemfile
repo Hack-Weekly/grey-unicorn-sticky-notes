@@ -68,7 +68,6 @@ group :development do
 end
 gem "faraday"
 gem "devise", "~> 4.9"
-gem "petergate", "~> 3.0"
 gem "inline_svg", "~> 1.8"
 gem "mini_magick", "~> 4.11"
 gem "omniauth-rails_csrf_protection"
@@ -79,7 +78,6 @@ gem "font-awesome-sass", "~> 5.15"
 gem "font-awesome-rails"
 gem "aws-sdk-s3", require: false
 gem 'pundit', '~> 2.3', '>= 2.3.1'
-gem 'rolify', '~> 6.0', '>= 6.0.1'
 
 group :development, :test do
   gem "dotenv-rails"

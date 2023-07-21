@@ -224,8 +224,6 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    petergate (3.0.0)
-      activerecord (> 4.0.0)
     pg (1.5.3)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -282,7 +280,6 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
-    rolify (6.0.1)
     rubocop (1.54.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -388,14 +385,12 @@ DEPENDENCIES
   omniauth-github (~> 2.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  petergate (~> 3.0)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
   pundit (~> 2.3, >= 2.3.1)
   rails (~> 7.0.6)
   redis (~> 4.0)
-  rolify (~> 6.0, >= 6.0.1)
   rubocop
   rubocop-performance
   rubocop-rails
