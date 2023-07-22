@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :whiteboard_id, "Select a whiteboard:" %>
+    <%= form.collection_select :whiteboard_id, pundit_user.last_viewed_workspace.whiteboards, :id, :title %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
