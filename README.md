@@ -17,7 +17,7 @@
   docker-compose up -d
   ```
 
-- Install require packages 
+- Install required packages
 
   ```sh
   bundle install
@@ -36,11 +36,11 @@
   bin/dev
   ```
 
-- To try the app 
+- To try the app
 
   Open `localhost:3000` in your browser and enjoy!
 
-- To connect to the databse console run
+- To connect to the database console run
 
   ```sh
   docker-compose exec dev_db psql -U postgres
