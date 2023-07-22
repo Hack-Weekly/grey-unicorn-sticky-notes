@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include WorkspaceInitializable
+
   # Allow only a single role assignment.
   rolify before_add: :remove_existing_roles
 

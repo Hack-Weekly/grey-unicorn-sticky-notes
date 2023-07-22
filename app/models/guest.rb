@@ -1,4 +1,6 @@
 class Guest < ApplicationRecord
+  include WorkspaceInitializable
+
   after_initialize :set_expiration, if: :new_record?
 
   has_many :workspaces,   as: :owner, dependent: :destroy
