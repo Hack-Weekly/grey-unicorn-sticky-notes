@@ -5,13 +5,9 @@
 <div id="sticky_notes">
   <% @sticky_notes.each do |sticky_note| %>
     <%= render sticky_note %>
-    <% if user_signed_in? %>
-      <p>
-        <%= link_to "Show this sticky note", user_sticky_note_path(current_user, sticky_note) %>
-      </p>
-    <% end %>
+    <p>
+      <%= link_to "Show this sticky note", sticky_note %>
+    </p>
   <% end %>
 </div>
-<% if @user %>
-  <%= link_to "New sticky note", new_user_sticky_note_path(user_id: @user.id) %>
-<% end %>
+<%= link_to "New sticky note", new_sticky_note_path %>

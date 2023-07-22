@@ -8,7 +8,5 @@ Rails.application.routes.draw do
 
   root to: "sticky_notes#index"
 
-  resources :users do
-    resources :sticky_notes
-  end
+  resources :sticky_notes, except: [:index]
 end
