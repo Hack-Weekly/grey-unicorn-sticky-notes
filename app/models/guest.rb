@@ -5,6 +5,10 @@ class Guest
     @guest_id = guest_id.to_s
   end
 
+  def role
+    :guest
+  end
+
   def has_role?(role)
     role == :guest
   end

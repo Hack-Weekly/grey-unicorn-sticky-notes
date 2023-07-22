@@ -15,6 +15,10 @@ class User < ApplicationRecord
   validates :name, presence: true
   validate :role_assigned, on: :update
 
+  def role
+    roles_name.first.to_sym
+  end
+
   def first_name
     name.split.first
   end
