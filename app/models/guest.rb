@@ -1,9 +1,8 @@
 class Guest < ApplicationRecord
   after_initialize :set_expiration, if: :new_record?
 
-  def sticky_notes
-    StickyNote.where(owner_type: "Guest", owner_id: guest_id)
-  end
+  has_many :workspaces,   as: :owner, dependent: :destroy
+  has_many :sticky_notes, as: :owner, dependent: :destroy
 
   def role
     :guest
