@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_183201) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_22_184649) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_183201) do
     t.datetime "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "last_viewed_workspace_id"
+    t.index ["last_viewed_workspace_id"], name: "index_guests_on_last_viewed_workspace_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -89,7 +91,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_183201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "last_viewed_workspace_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["last_viewed_workspace_id"], name: "index_users_on_last_viewed_workspace_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -121,6 +125,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_183201) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "guests", "workspaces", column: "last_viewed_workspace_id"
   add_foreign_key "sticky_notes", "whiteboards"
+  add_foreign_key "users", "workspaces", column: "last_viewed_workspace_id"
   add_foreign_key "whiteboards", "workspaces"
 end
