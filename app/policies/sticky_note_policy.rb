@@ -1,6 +1,6 @@
 class StickyNotePolicy < ApplicationPolicy
   def show?
-    true
+    common_access
   end
 
   def create?
@@ -8,11 +8,11 @@ class StickyNotePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    common_access
   end
 
   def destroy?
-    true
+    common_access
   end
 
   class Scope < Scope
@@ -23,6 +23,15 @@ class StickyNotePolicy < ApplicationPolicy
       when :admin      then scope.all
       else scope.none
       end
+    end
+  end
+
+  private
+
+  def common_access
+    case user
+    when Guest then record.guest_id == user.guest_id
+    when User  then user.has_role?(:admin) || record.user == user
     end
   end
 end
