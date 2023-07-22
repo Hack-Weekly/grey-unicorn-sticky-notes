@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  rolify
+  # Allow only a single role assignment.
+  rolify before_add: :remove_existing_roles
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -12,7 +13,7 @@ class User < ApplicationRecord
   has_many :sticky_notes, dependent: :destroy
 
   validates :name, presence: true
-  validate :must_have_a_role, on: :update
+  validate :role_assigned, on: :update
 
   def first_name
     name.split.first
@@ -24,11 +25,15 @@ class User < ApplicationRecord
 
   private
 
+  def remove_existing_roles(role)
+    roles.delete_all
+  end
+
   def assign_default_role
     add_role(:registered) if roles.blank?
   end
 
-  def must_have_a_role
-    errors.add(:roles, "must have at least one role") unless roles.any?
+  def role_assigned
+    errors.add(:roles, "must be assigned a role") unless roles.any?
   end
 end
