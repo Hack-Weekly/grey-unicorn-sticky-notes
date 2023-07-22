@@ -57,7 +57,7 @@ class StickyNotesController < ApplicationController
 
   def build_sticky_note_with_owner(sticky_note_params = nil)
     StickyNote.new(sticky_note_params).tap do |sticky_note|
-      sticky_note.owner = current_user || guest_identifier
+      sticky_note.owner = pundit_user
     end
   end
 

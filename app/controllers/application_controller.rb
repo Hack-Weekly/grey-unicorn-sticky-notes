@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def pundit_user
-    user_signed_in? ? current_user : guest_identifier
+    current_user || guest_identifier
   end
 
   def guest_identifier
