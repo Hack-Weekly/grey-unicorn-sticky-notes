@@ -9,4 +9,11 @@
     <%= sticky_note.body %>
   </p>
 
+  <% if current_user.has_role?(:admin) %>
+    <p>
+      <strong>User:</strong>
+      <%= sticky_note.user&.name || "Guest: #{sticky_note.guest_id}" %>
+    </p>
+  <% end %>
+
 </div>
