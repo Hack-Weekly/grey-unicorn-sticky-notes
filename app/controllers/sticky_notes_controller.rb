@@ -23,7 +23,7 @@ class StickyNotesController < ApplicationController
     @sticky_note = build_sticky_note_with_owner(sticky_note_params)
     authorize(@sticky_note)
     if @sticky_note.save
-      redirect_to sticky_notes_url
+      redirect_to root_url
       flash[:success] = "Sticky note created successfully."
     else
       render :new
@@ -43,7 +43,7 @@ class StickyNotesController < ApplicationController
   # DELETE /sticky_notes/1
   def destroy
     @sticky_note.destroy
-    redirect_to sticky_notes_url
+    redirect_to root_url
     flash[:alert] = "Sticky note was successfully destroyed."
   end
 
