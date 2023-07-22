@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  root to: "sticky_notes#index"
+  root to: "dashboard#index"
 
   resources :sticky_notes, except: [:index]
 end
