@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   after_create :assign_default_role
 
+  belongs_to :last_viewed_workspace, class_name: "Workspace", optional: true
+
   has_many :workspaces,   as: :owner, dependent: :destroy
   has_many :sticky_notes, as: :owner, dependent: :destroy
 

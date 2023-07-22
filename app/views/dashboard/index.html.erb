@@ -1,0 +1,12 @@
+<h2><%= @workspace.name %></h2>
+
+<% @workspace.whiteboards.each do |whiteboard| %>
+  <h3><%= whiteboard.title %></h3>
+
+  <% whiteboard.sticky_notes.each do |sticky_note| %>
+    <div>
+      <h4><%= sticky_note.title %></h4>
+      <p><%= sticky_note.body %></p>
+    </div>
+  <% end %>
+<% end %>

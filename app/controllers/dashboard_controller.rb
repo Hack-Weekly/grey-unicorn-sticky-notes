@@ -1,5 +1,8 @@
 class DashboardController < ApplicationController
+  skip_after_action :verify_policy_scoped, only: [:index]
+
   def index
-    @workspaces = policy_scope(Workspace).includes(whiteboards: :sticky_notes)
+    @workspace = pundit_user.last_viewed_workspace || pundit_user.workspaces.first
+    authorize(@workspace)
   end
 end

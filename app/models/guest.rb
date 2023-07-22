@@ -3,6 +3,8 @@ class Guest < ApplicationRecord
 
   after_initialize :set_expiration, if: :new_record?
 
+  belongs_to :last_viewed_workspace, class_name: "Workspace", optional: true
+
   has_many :workspaces,   as: :owner, dependent: :destroy
   has_many :sticky_notes, as: :owner, dependent: :destroy
 
