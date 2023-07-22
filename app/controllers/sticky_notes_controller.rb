@@ -20,7 +20,7 @@ class StickyNotesController < ApplicationController
 
   # POST /sticky_notes
   def create
-    @sticky_note = current_user.sticky_notes.build(sticky_note_params)
+    authorize(@sticky_note)
     if @sticky_note.save
       redirect_to user_sticky_notes_url, notice: "Sticky note created successfully."
     else
