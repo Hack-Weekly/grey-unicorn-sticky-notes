@@ -18,9 +18,8 @@ class StickyNotePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       case user.role
-      when :guest      then scope.where(guest_id: user.guest_id)
-      when :registered then scope.where(user:)
-      when :admin      then scope.all
+      when :guest, :registered then scope.where(owner: user)
+      when :admin then scope.all
       else scope.none
       end
     end
@@ -29,9 +28,6 @@ class StickyNotePolicy < ApplicationPolicy
   private
 
   def common_access
-    case user
-    when Guest then record.guest_id == user.guest_id
-    when User  then user.has_role?(:admin) || record.user == user
-    end
+    user.has_role?(:admin) || record.owner == user
   end
 end

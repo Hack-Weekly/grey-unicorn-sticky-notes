@@ -7,11 +7,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def pundit_user
-    user_signed_in? ? current_user : Guest.new(guest_identifier)
+    user_signed_in? ? current_user : guest_identifier
   end
 
   def guest_identifier
-    cookies[:guest_identifier] ||= { value: SecureRandom.uuid, expires: 1.month }
+    if cookies[:guest_identifier]
+      Guest.find(cookies[:guest_identifier])
+    else
+      guest = Guest.create!
+      cookies[:guest_identifier] = { value: guest.id, expires: 1.month.from_now }
+      guest
+    end
   end
 
   def user_not_authorized
