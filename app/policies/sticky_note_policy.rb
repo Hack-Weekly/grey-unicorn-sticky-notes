@@ -17,7 +17,12 @@ class StickyNotePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      case user.role
+      when :guest      then scope.where(guest_id: user.guest_id)
+      when :registered then scope.where(user:)
+      when :admin      then scope.all
+      else scope.none
+      end
     end
   end
 end
