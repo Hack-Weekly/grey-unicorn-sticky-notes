@@ -11,7 +11,7 @@ class StickyNotesController < ApplicationController
 
   # GET /sticky_notes/new
   def new
-    @sticky_note = current_user.sticky_notes.build
+    @sticky_note = build_sticky_note_with_owner
     authorize(@sticky_note)
   end
 
@@ -20,6 +20,7 @@ class StickyNotesController < ApplicationController
 
   # POST /sticky_notes
   def create
+    @sticky_note = build_sticky_note_with_owner(sticky_note_params)
     authorize(@sticky_note)
     if @sticky_note.save
       redirect_to user_sticky_notes_url, notice: "Sticky note created successfully."
@@ -49,6 +50,16 @@ class StickyNotesController < ApplicationController
   def set_sticky_note
     @sticky_note = StickyNote.find(params[:id])
     authorize(@sticky_note)
+  end
+
+  def build_sticky_note_with_owner(sticky_note_params = nil)
+    StickyNote.new(sticky_note_params).tap do |sticky_note|
+      if user_signed_in?
+        sticky_note.user = current_user
+      else
+        sticky_note.guest_id = guest_identifier
+      end
+    end
   end
 
   # Only allow a trusted parameter "white list" through.
