@@ -22,7 +22,7 @@ class StickyNotesController < ApplicationController
   def create
     @sticky_note = current_user.sticky_notes.build(sticky_note_params)
     if @sticky_note.save
-      redirect_to user_path(current_user), notice: 'Sticky note created successfully.'
+      redirect_to user_sticky_notes_url, notice: "Sticky note created successfully."
     else
       render :new
     end
@@ -31,7 +31,7 @@ class StickyNotesController < ApplicationController
   # PATCH/PUT /sticky_notes/1
   def update
     if @sticky_note.update(sticky_note_params)
-      redirect_to @sticky_note, notice: 'Sticky note was successfully updated.'
+      redirect_to user_sticky_note_url(@sticky_note), notice: "Sticky note was successfully updated."
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class StickyNotesController < ApplicationController
   # DELETE /sticky_notes/1
   def destroy
     @sticky_note.destroy
-    redirect_to sticky_notes_url, notice: 'Sticky note was successfully destroyed.'
+    redirect_to user_sticky_notes_url, notice: "Sticky note was successfully destroyed."
   end
 
   private
