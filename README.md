@@ -17,7 +17,14 @@
   docker-compose up -d
   ```
 
-- Execute pending migrations 
+- Install require packages 
+
+  ```sh
+  bundle install
+  yarn install
+  ```
+
+- Execute pending migrations
 
   ```sh
   bin/rails db:migrate
@@ -29,4 +36,12 @@
   bin/dev
   ```
 
-- Open `localhost:3000` in your browser and enjoy!
+- To try the app 
+
+  Open `localhost:3000` in your browser and enjoy!
+
+- To connect to the databse console run
+
+  ```sh
+  docker-compose exec dev_db psql -U postgres
+  ```
