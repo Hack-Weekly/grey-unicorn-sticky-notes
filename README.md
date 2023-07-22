@@ -4,7 +4,7 @@
 
 ### Dependencies
 
-- ruby 3.1.2, (install with [rbenv] recommended)
+- ruby 3.1.2, (install with [rbenv](https://github.com/rbenv/rbenv) recommended)
 - docker and docker-compose
 
 ### Getting started
@@ -15,6 +15,12 @@
 
   ```sh
   docker-compose up -d
+  ```
+
+- Execute pending migrations 
+
+  ```sh
+  bin/rails db:migrate
   ```
 
 - Run the app
