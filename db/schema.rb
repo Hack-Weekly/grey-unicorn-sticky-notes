@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_182046) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_22_183201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,7 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_182046) do
     t.datetime "updated_at", null: false
     t.string "owner_type", null: false
     t.bigint "owner_id", null: false
+    t.bigint "whiteboard_id", null: false
     t.index ["owner_type", "owner_id"], name: "index_sticky_notes_on_owner"
+    t.index ["whiteboard_id"], name: "index_sticky_notes_on_whiteboard_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,5 +121,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_182046) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sticky_notes", "whiteboards"
   add_foreign_key "whiteboards", "workspaces"
 end
