@@ -63,6 +63,6 @@ class StickyNotesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def sticky_note_params
-    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id)
+    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id, :position)
   end
 end
