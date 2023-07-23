@@ -1,12 +1,7 @@
 <div id="<%= dom_id sticky_note %>">
   <p>
-    <strong>Title:</strong>
-    <%= sticky_note.title %>
-  </p>
-
-  <p>
     <strong>Body:</strong>
-    <%= sticky_note.body %>
+    <%= sticky_note.content %>
   </p>
 
   <% if user_signed_in? && current_user.has_role?(:admin) %>
