@@ -36,8 +36,8 @@ module ApplicationHelper
       else
         image_tag(
           member.profile.to_s,
-          width: 60,
-          height: 60,
+          width: 40,
+          height: 40,
           style: "border-radius: 50%"
         ).html_safe
       end
@@ -46,8 +46,8 @@ module ApplicationHelper
     def gravatar_helper(user)
       image_tag(
         "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}",
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
         style: "border-radius: 50%;"
       )
     end
