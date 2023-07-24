@@ -1,13 +1,13 @@
-<div id="<%= dom_id(sticky_note) %>">
+<div id="<%= dom_id(workspace) %>">
   <p>
-    <strong>Body:</strong>
-    <%= sticky_note.content %>
+    <strong>Name:</strong>
+    <%= workspace.name %>
   </p>
 
   <% if user_signed_in? && current_user.has_role?(:admin) %>
     <p>
       <strong>User:</strong>
-      <%= sticky_note.owner.name %>
+      <%= workspace.owner.name %>
     </p>
   <% end %>
 </div>

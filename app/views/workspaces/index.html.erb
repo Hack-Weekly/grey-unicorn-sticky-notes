@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Workspaces</h1>
+
+<div id="workspaces">
+  <% @workspaces.each do |workspace| %>
+    <%= render workspace %>
+    <p>
+      <%= link_to "Show this workspace", workspace %>
+    </p>
+  <% end %>
+</div>
+<%= link_to "New workspace", new_workspace_path %>
