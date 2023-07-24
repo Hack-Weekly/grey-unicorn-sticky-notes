@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-body">
-    <h2>Sign up</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-md-4">
+      <h2>Sign up</h2>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true %>
@@ -14,9 +14,7 @@
           <%= f.label :name %><br />
           <%= f.text_field :name %>
         </div>
-      </div>
 
-      <div class="col-md-4">
         <div class="form-group">
           <%= f.label :password %>
           <% if @minimum_password_length %>
@@ -29,25 +27,53 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
-        <br>
+        
         <div class="form-group d-grid">
-          <label class="btn btn-primary"> upload an optional profile image
-          <%= f.file_field :profile, style: 'display: none;' %>
+          <label> <div class="fa-regular fa-image"></div> Upload an optional profile image
+          <%= f.file_field :profile, id: "profile_picture", style: 'display: none;'%>
+          <div id="profile_picture_preview"></div>
         </div>
-      </div>
 
-      <div class="col-md-4">
         <div class="form-group d-grid">
           <%= f.submit "Sign up", class: 'btn btn-primary btn-block' %>
         </div>
-        <br>
-
-      </div>
 
         <div class="auth-links register-text">
           <%= render "devise/shared/links" %>
         </div>
       </div>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
+<script>
+
+//handling image preview during sign up
+function setup_profile_preview(){
+    console.log('test')
+    const file_input = document.getElementById("profile_picture")
+    const image_preview = document.getElementById("profile_picture_preview")
+
+    file_input.addEventListener("change", function(){
+        let file = file_input.files[0];
+        if (file){
+            const reader = new FileReader();
+    
+            reader.onload = function() {
+                const image = document.createElement("img");
+                image.src = reader.result;
+                image.style.maxWidth = "100px";
+                image.style.maxHeight = "100px";
+                image_preview.innerHTML = "";
+                image_preview.appendChild(image);
+            };
+    
+            reader.readAsDataURL(file);
+        } else {
+            image_preview.innerHTML = "";
+        }
+    })
+}
+setup_profile_preview();
+</script>
+<% end %>
