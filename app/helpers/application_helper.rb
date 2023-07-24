@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def avatar_helper(user)
-    avatar_image = user.profile || gravatar_url(user)
+    avatar_image = user.profile.presence || gravatar_url(user)
     image_tag(avatar_image, width: 40, height: 40, style: "border-radius: 50%")
   end
 
