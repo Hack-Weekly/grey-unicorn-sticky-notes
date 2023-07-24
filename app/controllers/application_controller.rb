@@ -11,17 +11,19 @@ class ApplicationController < ActionController::Base
   end
 
   def guest_identifier
-    if cookies[:guest_identifier]
-      Guest.find(cookies[:guest_identifier])
-    else
-      guest = Guest.create!
-      cookies[:guest_identifier] = { value: guest.id, expires: 1.month.from_now }
-      guest
-    end
+    Guest.find_by(id: cookies[:guest_identifier]) || create_guest
   end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def create_guest
+    guest = Guest.create!
+    cookies[:guest_identifier] = { value: guest.id, expires: 1.month.from_now }
+    guest
   end
 end
