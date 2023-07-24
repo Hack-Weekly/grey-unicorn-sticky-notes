@@ -32,6 +32,10 @@ class User < ApplicationRecord
     name.split.last
   end
 
+  def gravatar_url
+    "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(email.downcase)}"
+  end
+
   private
 
   def remove_existing_roles(role)

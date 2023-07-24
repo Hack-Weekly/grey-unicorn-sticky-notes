@@ -29,11 +29,7 @@ module ApplicationHelper
   end
 
   def avatar_helper(user)
-    avatar_image = user.profile.presence || gravatar_url(user)
+    avatar_image = user.profile.presence || user.gravatar_url
     image_tag(avatar_image, width: 40, height: 40, style: "border-radius: 50%")
-  end
-
-  def gravatar_url(user)
-    "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}"
   end
 end
