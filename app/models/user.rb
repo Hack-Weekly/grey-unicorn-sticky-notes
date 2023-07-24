@@ -10,9 +10,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   before_create :assign_default_role
-  has_one_attached :profile
+
   belongs_to :last_viewed_workspace, class_name: "Workspace", optional: true
 
+  has_one_attached :profile
   has_many :workspaces,   as: :owner, dependent: :destroy
   has_many :sticky_notes, as: :owner, dependent: :destroy
 
@@ -42,6 +43,6 @@ class User < ApplicationRecord
   end
 
   def role_assigned
-    errors.add(:roles, "must be assigned a role") unless roles.any?
+    errors.add(:user, "must be assigned a role") unless roles.any?
   end
 end
