@@ -29,13 +29,11 @@ module ApplicationHelper
   end
 
   def avatar_helper(user)
-    profile_image =
-      if user.profile.file.nil?
-        "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}"
-      else
-        member.profile.to_s
-      end
+    avatar_image = user.profile || gravatar_url(user)
+    image_tag(avatar_image, width: 40, height: 40, style: "border-radius: 50%")
+  end
 
-    image_tag(profile_image, width: 40, height: 40, style: "border-radius: 50%")
+  def gravatar_url(user)
+    "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}"
   end
 end
