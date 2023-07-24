@@ -1,4 +1,23 @@
-<div class="alert alert-dismissible fade show <%= flash_class(level) %>" role="alert">
+<%
+=begin%>
+ <div class="alert alert-dismissible fade show <%= flash_class(level) %>" role="alert">
   <span><%= content if content.is_a?(String) %>
   <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close">
+</div>
+<%
+=end%>
+
+<div class="card-container col-md-3">
+  <div data-controller="alert" class="card bread <%= flash_class(level) %>">
+    <div class="card-body">
+      <p class="content flash">
+        <%= content %>
+      </p>
+    </div>
+    <div class="button-container">
+      <button data-action="alert#close" class="btn close-flash <%= flash_class(level) %>">
+        <%= inline_svg_tag 'close.svg', class: 'svgbtn', style: 'color: white' %>
+      </button>
+    </div>
+  </div>
 </div>

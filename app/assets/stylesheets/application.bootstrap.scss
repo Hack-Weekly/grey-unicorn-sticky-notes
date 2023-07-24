@@ -3,36 +3,45 @@
 @import 'actiontext.css';
 
 a.nav-link {
-  font-size: 13px;
-  font-weight: 600;
+	font-size: 13px;
+	font-weight: 600;
 }
 
 #sticky-notes {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .sticky-note {
-  height: 250px;
-  border: 1px solid rgb(255 255 255 / 50%);
-  border-top-color: rgb(175 175 175 / 10%);
-  margin-bottom: 1em;
-  padding: 1em;
-  background-color: #fff9af;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0px 2px 4px 0px rgb(75 75 75 / 25%);
+	height: 250px;
+	border: 1px solid rgb(255 255 255 / 50%);
+	border-top-color: rgb(175 175 175 / 10%);
+	margin-bottom: 1em;
+	padding: 1em;
+	background-color: #fff9af;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	box-shadow: 0px 2px 4px 0px rgb(75 75 75 / 25%);
 }
 
 .add-note {
-  border: 2px dashed #ccc;
-  background: none;
-  opacity: 0.5;
+	border: 2px dashed #ccc;
+	background: none;
+	opacity: 0.5;
 }
 
 #workspace-title,
 #whiteboards .card-title {
-  cursor: pointer;
+	cursor: pointer;
 }
 
+.svgbtn {
+	display: inline-block;
+	z-index: 100;
+	width: 30px;
+}
+
+.flash {
+	color: white;
+}
