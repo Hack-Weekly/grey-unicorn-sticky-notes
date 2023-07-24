@@ -9,8 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_create :assign_default_role
-
+  before_create :assign_default_role
+  has_one_attached :profile
   belongs_to :last_viewed_workspace, class_name: "Workspace", optional: true
 
   has_many :workspaces,   as: :owner, dependent: :destroy

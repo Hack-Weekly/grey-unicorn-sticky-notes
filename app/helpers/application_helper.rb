@@ -45,7 +45,7 @@ module ApplicationHelper
 
     def gravatar_helper(user)
       image_tag(
-        "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}",
+        user.profile,
         width: 40,
         height: 40,
         style: "border-radius: 50%;"
