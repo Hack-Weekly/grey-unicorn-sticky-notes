@@ -30,6 +30,32 @@ ul.dropdown-menu {
   border-radius: 50%;
 }
 
+#workspace {
+	#workspace-title {
+		color: #4b5567;
+		font-weight: 700;
+	}
+}
+
+#whiteboards {
+	.board-header {
+		background: #4b5963;
+		padding: 0.5em 1em;
+		color: #fff;
+		border-radius: 0.3em 0.3em 0 0;
+		i.fa {
+			vertical-align: 0.01em;
+    	margin-right: 6px;
+		}
+		.board-title {
+			display: inline-block;
+			margin: 0;
+			font-size: 1.1em;
+			font-weight: 700;
+		}
+	}
+}
+
 #sticky-notes {
 	display: flex;
 	flex-wrap: wrap;
@@ -39,7 +65,6 @@ ul.dropdown-menu {
 	height: 250px;
 	border: 1px solid rgb(255 255 255 / 50%);
 	border-top-color: rgb(175 175 175 / 10%);
-	margin-bottom: 1em;
 	padding: 1em;
 	background-color: #fff9af;
 	font-size: 18px;
@@ -50,12 +75,15 @@ ul.dropdown-menu {
 
 .add-note {
 	border: 2px dashed #ccc;
+  border-radius: 8px;
 	background: none;
 	opacity: 0.5;
+  box-shadow: none;
 }
 
 #workspace-title,
-#whiteboards .card-title {
+#whiteboards .board-title,
+.add-note {
 	cursor: pointer;
 }
 
