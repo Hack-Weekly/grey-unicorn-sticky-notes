@@ -7,6 +7,29 @@ a.nav-link {
 	font-weight: 600;
 }
 
+a.dropdown-toggle {
+	padding-top: 0.1em;
+	font-size: 18px;
+	&:after {
+		margin-left: 0.1em;
+	}
+}
+
+ul.dropdown-menu {
+	.nav-link {
+    padding: 0 0.9em !important;
+	}
+	i.fa {
+    margin-right: 6px;
+    vertical-align: 0.05em;
+	}
+}
+
+.profile-image {
+  border: 2px solid #eee;
+  border-radius: 50%;
+}
+
 #sticky-notes {
 	display: flex;
 	flex-wrap: wrap;

@@ -30,6 +30,6 @@ module ApplicationHelper
 
   def avatar_helper(user)
     avatar_image = user.profile.presence || user.gravatar_url
-    image_tag(avatar_image, width: 40, height: 40, style: "border-radius: 50%")
+    image_tag(avatar_image, width: 45, height: 45, class: "profile-image")
   end
 end
