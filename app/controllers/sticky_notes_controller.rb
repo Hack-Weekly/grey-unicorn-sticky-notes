@@ -1,5 +1,5 @@
 class StickyNotesController < ApplicationController
-  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy, :change_stage]
 
   # GET /sticky_notes
   def index
@@ -45,6 +45,11 @@ class StickyNotesController < ApplicationController
     @sticky_note.destroy
     redirect_to root_url
     flash[:alert] = "Sticky note was successfully destroyed."
+  end
+
+  def change_stage
+    @applicant.update(sticky_note_params)
+    head :ok
   end
 
   private

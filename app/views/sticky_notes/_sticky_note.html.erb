@@ -1,4 +1,5 @@
-<div id="<%= dom_id(sticky_note) %>">
+
+<div id="<%= dom_id(sticky_note) %>" data-id="<%= sticky_note.id %>">
   <p>
     <strong>Body:</strong>
     <%= sticky_note.content %>
