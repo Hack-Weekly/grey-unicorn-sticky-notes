@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  skip_after_action :verify_authorized
+
   # GET /resource/confirmation/new
   # def new
   #   super
