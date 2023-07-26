@@ -22,7 +22,6 @@ class StickyNotesController < ApplicationController
     respond_to do |format|
       if @sticky_note.save
         format.turbo_stream {}
-        flash[:success] = "Sticky note created successfully."
       else
         format.html { render :new, status: :unprocessable_entity }
       end
