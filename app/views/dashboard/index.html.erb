@@ -11,11 +11,7 @@
           </div>
           <div class="card-body">
             <div id="sticky-notes" class="row row-cols-4 g-3">
-              <% whiteboard.sticky_notes.each do |sticky_note| %>
-                <div class="col">
-                  <%= render sticky_note %>
-                </div>
-              <% end %>
+              <%= render whiteboard.sticky_notes %>
               <div class="col">
                 <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard_id: whiteboard.id } %>
               </div>
