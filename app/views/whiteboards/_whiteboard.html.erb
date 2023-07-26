@@ -1,0 +1,16 @@
+<div class="col">
+  <div class="card h-100">
+    <div class="board-header">
+      <i class="fa fa-lg fa-note-sticky"></i>
+      <h3 class="board-title"><%= whiteboard.title %></h3>
+    </div>
+    <div class="card-body">
+      <div id="sticky-notes" class="row row-cols-4 g-3">
+        <%= render whiteboard.sticky_notes %>
+        <div class="col">
+          <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard_id: whiteboard.id } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
