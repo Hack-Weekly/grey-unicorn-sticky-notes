@@ -13,9 +13,7 @@
             <div id="sticky-notes" class="row row-cols-4 g-3">
               <% whiteboard.sticky_notes.each do |sticky_note| %>
                 <div class="col">
-                  <div class="sticky-note">
-                    <p><%= sticky_note.content %></p>
-                  </div>
+                  <%= render sticky_note %>
                 </div>
               <% end %>
               <div class="col">

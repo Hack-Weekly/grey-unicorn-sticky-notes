@@ -1,12 +1,3 @@
 <div id="<%= dom_id(sticky_note) %>" class="sticky-note">
-  <p>
-    <%= sticky_note.content %>
-  </p>
-
-  <% if user_signed_in? && current_user.has_role?(:admin) %>
-    <p>
-      <strong>User:</strong>
-      <%= sticky_note.owner.name %>
-    </p>
-  <% end %>
+  <p><%= sticky_note.content %></p>
 </div>
