@@ -1,0 +1,8 @@
+<%= turbo_frame_tag id="new-note" do %>
+  <%= link_to new_sticky_note_path(:whiteboard_id => whiteboard_id) do %>
+    <div class="sticky-note add-note">
+      <i class="fa fa-xl fa-file-circle-plus"></i><br>
+      New Note
+    </div>
+  <% end %>
+<% end %>

@@ -1,28 +1,28 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import 'actiontext.css';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+@import "actiontext.css";
 
 a.nav-link {
-	font-size: 13px;
-	font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 a.dropdown-toggle {
-	padding-top: 0.1em;
-	font-size: 18px;
-	&:after {
-		margin-left: 0.1em;
-	}
+  padding-top: 0.1em;
+  font-size: 18px;
+  &:after {
+    margin-left: 0.1em;
+  }
 }
 
 ul.dropdown-menu {
-	.nav-link {
+  .nav-link {
     padding: 0 0.9em !important;
-	}
-	i.fa {
+  }
+  i.fa {
     margin-right: 6px;
     vertical-align: 0.05em;
-	}
+  }
 }
 
 .profile-image {
@@ -31,68 +31,77 @@ ul.dropdown-menu {
 }
 
 #workspace {
-	#workspace-title {
-		color: #4b5567;
-		font-weight: 700;
-	}
+  #workspace-title {
+    color: #4b5567;
+    font-weight: 700;
+  }
 }
 
 #whiteboards {
-	.board-header {
-		background: #4b5963;
-		padding: 0.5em 1em;
-		color: #fff;
-		border-radius: 0.3em 0.3em 0 0;
-		i.fa {
-			vertical-align: 0.01em;
-    	margin-right: 6px;
-		}
-		.board-title {
-			display: inline-block;
-			margin: 0;
-			font-size: 1.1em;
-			font-weight: 700;
-		}
-	}
+  .board-header {
+    background: #4b5963;
+    padding: 0.5em 1em;
+    color: #fff;
+    border-radius: 0.3em 0.3em 0 0;
+    i.fa {
+      vertical-align: 0.01em;
+      margin-right: 6px;
+    }
+    .board-title {
+      display: inline-block;
+      margin: 0;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+  }
 }
 
 #sticky-notes {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sticky-note {
-	height: 250px;
-	border: 1px solid rgb(255 255 255 / 50%);
-	border-top-color: rgb(175 175 175 / 10%);
-	padding: 1em;
-	background-color: #fff9af;
-	font-size: 18px;
-	font-weight: 600;
-	text-align: center;
-	box-shadow: 0px 2px 4px 0px rgb(75 75 75 / 25%);
+  height: 250px;
+  border: 1px solid rgb(255 255 255 / 50%);
+  border-top-color: rgb(175 175 175 / 10%);
+  padding: 1em;
+  background-color: #fff9af;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0px 2px 4px 0px rgb(75 75 75 / 25%);
 }
 
 .add-note {
-	border: 2px dashed #ccc;
+  border: 2px dashed #ccc;
   border-radius: 8px;
-	background: none;
-	opacity: 0.5;
+  background: none;
+  opacity: 0.5;
   box-shadow: none;
+}
+
+.sticky-note-form {
+  border: none;
+  resize: none;
+  background-color: #fff9af;
+}
+.sticky-note-form:focus {
+  outline: none;
 }
 
 #workspace-title,
 #whiteboards .board-title,
 .add-note {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .svgbtn {
-	display: inline-block;
-	z-index: 100;
-	width: 30px;
+  display: inline-block;
+  z-index: 100;
+  width: 30px;
 }
 
 .flash {
-	color: white;
+  color: white;
 }

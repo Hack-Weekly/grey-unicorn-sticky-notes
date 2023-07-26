@@ -19,9 +19,7 @@
                 </div>
               <% end %>
               <div class="col">
-                <div class="sticky-note add-note">
-                  <i class="fa fa-xl fa-file-circle-plus"></i><br>New Note
-                </div>
+                <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard_id: whiteboard.id } %>
               </div>
             </div>
           </div>

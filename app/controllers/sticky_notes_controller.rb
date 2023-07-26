@@ -11,6 +11,7 @@ class StickyNotesController < ApplicationController
 
   # GET /sticky_notes/new
   def new
+    @whiteboard_id = params[:whiteboard_id]
     @sticky_note = build_sticky_note_with_owner
     authorize(@sticky_note)
   end
@@ -21,12 +22,15 @@ class StickyNotesController < ApplicationController
   # POST /sticky_notes
   def create
     @sticky_note = build_sticky_note_with_owner(sticky_note_params)
+    @whiteboard_id = sticky_note_params[:whiteboard_id]
     authorize(@sticky_note)
-    if @sticky_note.save
-      redirect_to root_url
-      flash[:success] = "Sticky note created successfully."
-    else
-      render :new
+    respond_to do |format|
+      if @sticky_note.save
+        format.turbo_stream {}
+        flash[:success] = "Sticky note created successfully."
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

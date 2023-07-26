@@ -1,4 +1,4 @@
-<%= form_with(model: sticky_note) do |form| %>
+<%= form_with(model: sticky_note, class: "sticky-note", data: { controller: "note" })  do |form| %>
   <% if sticky_note.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(sticky_note.errors.count, "error") %> prohibited this sticky_note from being saved:</h2>
@@ -12,16 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <%= form.label :content, style: "display: none" %>
+    <%= form.text_area :content, class: "sticky-note-form", autofocus: true, data: { action: "blur->note#enter keydown.enter->note#enter", note_target: "textarea" }  %>
   </div>
 
   <div>
-    <%= form.label :whiteboard_id, "Select a whiteboard:" %>
-    <%= form.collection_select :whiteboard_id, pundit_user.last_viewed_workspace.whiteboards, :id, :title %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.label :whiteboard_id, style: "display: none" %>
+    <%= form.hidden_field :whiteboard_id, value: whiteboard_id %>
   </div>
 <% end %>
