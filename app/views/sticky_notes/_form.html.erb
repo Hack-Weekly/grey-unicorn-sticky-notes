@@ -1,8 +1,6 @@
 <%= form_with(model: sticky_note, class: "sticky-note", data: { controller: "note" }) do |form| %>
   <% if sticky_note.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(sticky_note.errors.count, "error") %> prohibited this sticky_note from being saved:</h2>
-
       <ul>
         <% sticky_note.errors.each do |error| %>
           <li><%= error.full_message %></li>
