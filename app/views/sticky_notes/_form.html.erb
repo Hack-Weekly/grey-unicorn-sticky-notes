@@ -13,7 +13,7 @@
 
   <div class="d-flex h-100">
     <%= form.text_area :content, class: "sticky-note-form", autofocus: true, data: {
-      action: "blur->note#enter keydown.enter->note#enter", note_target: "textarea"
+      action: "blur->note#submitNote keydown.enter->note#submitNote", note_target: "textarea"
     } %>
   </div>
 
