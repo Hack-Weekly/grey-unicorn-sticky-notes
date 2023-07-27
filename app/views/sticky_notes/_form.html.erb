@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :content, style: "display: none" %>
-    <%= form.text_area :content, class: "sticky-note-form", autofocus: true, data: { action: "blur->note#enter keydown.enter->note#enter", note_target: "textarea" }  %>
+  <div class="d-flex h-100">
+    <%= form.text_area :content, class: "sticky-note-form", autofocus: true, data: {
+      action: "blur->note#enter keydown.enter->note#enter", note_target: "textarea"
+    } %>
   </div>
 
   <div>
-    <%= form.label :whiteboard_id, style: "display: none" %>
     <%= form.hidden_field :whiteboard_id, value: whiteboard_id %>
   </div>
 <% end %>
