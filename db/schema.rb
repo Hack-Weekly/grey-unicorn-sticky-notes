@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_23_133651) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_195127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_133651) do
     t.datetime "due_date"
     t.boolean "active", default: true
     t.boolean "pinned", default: false
+    t.integer "position"
     t.index ["owner_type", "owner_id"], name: "index_sticky_notes_on_owner"
     t.index ["whiteboard_id"], name: "index_sticky_notes_on_whiteboard_id"
   end

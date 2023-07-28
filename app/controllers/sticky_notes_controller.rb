@@ -1,8 +1,8 @@
 class StickyNotesController < ApplicationController
-  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy, :move]
 
   def index
-    @sticky_notes = policy_scope(StickyNote)
+    @sticky_notes = policy_scope(StickyNote).by_position
   end
 
   def show; end
@@ -43,6 +43,10 @@ class StickyNotesController < ApplicationController
     flash[:alert] = "Sticky note was successfully destroyed."
   end
 
+  def move
+    @sticky_note.insert_at(params[:position].to_i)
+  end
+
   private
 
   def set_sticky_note
@@ -57,6 +61,6 @@ class StickyNotesController < ApplicationController
   end
 
   def sticky_note_params
-    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id)
+    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id, :position)
   end
 end
