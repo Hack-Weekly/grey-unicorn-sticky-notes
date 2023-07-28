@@ -11,7 +11,4 @@ Rails.application.routes.draw do
   resources :workspaces
   resources :sticky_notes, except: [:index]
 
-  resources :sticky_notes do
-    patch :change_stage, on: :member
-  end
 end
