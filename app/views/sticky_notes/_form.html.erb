@@ -1,4 +1,4 @@
-<%= form_with(model: sticky_note, class: "sticky-note", data: { controller: "note" }) do |form| %>
+<%= form_with(model: sticky_note, class: "sticky-note", data: { controller: "note", note_target: "form" }) do |form| %>
   <% if sticky_note.errors.any? %>
     <div style="color: red">
       <ul>
@@ -13,6 +13,10 @@
     <%= form.text_area :content, class: "sticky-note-form", autofocus: true, data: {
       action: "blur->note#submitNote keydown.enter->note#submitNote", note_target: "textarea"
     } %>
+  </div>
+  
+  <div>
+    <%= form.select :color, [['', '#264653'], ['', '#2A9D8F'], ['', '#E9C46A'], ['', '#F4A261'], ['', '#E76F51']], {}, data: { action: "change->note#changeSelectColor", note_target: "select" } %>
   </div>
 
   <div>
