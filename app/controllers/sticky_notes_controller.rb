@@ -1,9 +1,9 @@
 class StickyNotesController < ApplicationController
-  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy, :change_stage]
+  before_action :set_sticky_note, only: [:show, :edit, :update, :destroy, :move]
 
   # GET /sticky_notes
   def index
-    @sticky_notes = policy_scope(StickyNote)
+    @sticky_notes = policy_scope(StickyNote).by_position
   end
 
   # GET /sticky_notes/1
@@ -47,9 +47,8 @@ class StickyNotesController < ApplicationController
     flash[:alert] = "Sticky note was successfully destroyed."
   end
 
-  def change_stage
-    @applicant.update(sticky_note_params)
-    head :ok
+  def move
+    @sticky_note.insert_at(params[:position].to_i)
   end
 
   private
@@ -68,6 +67,6 @@ class StickyNotesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def sticky_note_params
-    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id)
+    params.require(:sticky_note).permit(:content, :color, :due_date, :active, :pinned, :whiteboard_id, :position)
   end
 end

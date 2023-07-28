@@ -1,10 +1,9 @@
-<div data-controller="drag" data-drag-url-value='/sticky_notes/:id/location' data-drag-attribute-value="sticky_note[stage]">
-  <% [:new, :in_progress, :due, :complete].each do |key|>
+<div data-controller="drag" data-drag-url-value='/sticky_notes/:id/location' data-drag-attribute-value="position">
+
 <p style="color: green"><%= notice %></p>
 
   <h1>Sticky notes</h1>
-  <span class= ><%= key.to_s.humanize %></span>
-  <div id="sticky_notes" data-drag-target="list" data-new-value="<%= key.to_s %>">
+  <div id="sticky_notes" data-drag-target="list" data-new-value="position">
     <% @sticky_notes.where(stage: key.each do |sticky_note| %>
       <%= render sticky_note, sticky_note: sticky_note %>
       <p>
