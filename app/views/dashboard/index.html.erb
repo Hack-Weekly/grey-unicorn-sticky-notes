@@ -1,27 +1,6 @@
-<h2 id="workspace-title" data-action="click->workspace#editTitle"><%= @workspace.name %></h2>
-
-<div class="row g-4" id="whiteboards">
-  <% @workspace.whiteboards.each do |whiteboard| %>
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h3 class="card-title" data-action="click->whiteboard#editTitle"><%= whiteboard.title %></h3>
-          <div class="row row-cols-4 g-3" id="sticky-notes">
-            <% whiteboard.sticky_notes.each do |sticky_note| %>
-              <div class="col">
-                <div class="sticky-note">
-                  <p><%= sticky_note.content %></p>
-                </div>
-              </div>
-            <% end %>
-            <div class="col">
-              <div class="sticky-note add-note">
-                <i class="fa fa-xl fa-file-circle-plus"></i><br>New Note
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div id="workspace">
+  <h2 id="workspace-title" class="mb-4"><%= @workspace.name %></h2>
+  <div class="row g-4" id="whiteboards">
+    <%= render @workspace.whiteboards %>
+  </div>
 </div>
