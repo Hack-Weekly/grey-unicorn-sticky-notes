@@ -1,6 +1,7 @@
 
 <div class="col">
-  <div id="<%= dom_id(sticky_note) %>" class="sticky-note" data-id="<%= sticky_note.id %>">
+  <div id="<%= dom_id(sticky_note) %>" class="sticky-note" data-controller="drag"
+     data-drag-url-value="/sticky_notes/:id/location" data-id="<%= sticky_note.id %>" data-drag-attribute-value="position">
     <p><%= sticky_note.content %></p>
   </div>
 </div>

@@ -21,7 +21,7 @@ class StickyNotesController < ApplicationController
     authorize(@sticky_note)
     respond_to do |format|
       if @sticky_note.save
-        format.turbo_stream {}
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('sticky_notes', partial: 'sticky_notes/sticky_note', locals: { sticky_note: @sticky_note }) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
