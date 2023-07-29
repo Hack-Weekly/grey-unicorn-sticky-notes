@@ -5,6 +5,29 @@ export default class extends Controller {
 
   connect() {
     console.log("Note controller connected.");
+    this.enteredOnce = false;
+    this.formTarget.addEventListener(
+      "focusout",
+      this.focusoutFormHandler.bind(this)
+    );
+  }
+
+  disconnect() {
+    this.formTarget.removeEventListener(
+      "focusout",
+      this.focusoutFormHandler.bind(this)
+    );
+  }
+
+  focusoutFormHandler(e) {
+    if (this.enteredOnce) {
+      return false;
+    }
+    if (e.relatedTarget == null) {
+      this.submitNote(e);
+    } else if (e.relatedTarget.tagName == "SELECT") {
+      return false;
+    }
   }
 
   rejectBlankNote() {
@@ -12,12 +35,13 @@ export default class extends Controller {
   }
 
   submitNote(e) {
+    if (e.keyCode == 13) {
+      this.enteredOnce = true;
+    }
     if (!this.rejectBlankNote()) {
       return;
     }
-
     e.preventDefault();
-    this.textareaTarget.setAttribute("data-action", "");
     this.element.requestSubmit();
   }
 
