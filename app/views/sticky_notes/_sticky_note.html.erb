@@ -1,6 +1,6 @@
 
 <div class="col">
-  <div id="<%= dom_id(sticky_note) %>" class="sticky-note" data-id="<%= sticky_note.id %>">
+  <div id="<%= dom_id(sticky_note) %>" style="background-color: <%= sticky_note.color; %>" class="sticky-note" data-id="<%= sticky_note.id %>">
     <p><%= sticky_note.content %></p>
   </div>
 </div>
