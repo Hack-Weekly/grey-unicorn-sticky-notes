@@ -64,6 +64,7 @@ ul.dropdown-menu {
   flex-wrap: wrap;
   .sticky-note {
     display: flex;
+    justify-content: space-between;
     height: 250px;
     border: 1px solid rgb(255 255 255 / 50%);
     border-top-color: rgb(175 175 175 / 10%);
@@ -147,4 +148,17 @@ select option:nth-child(5) {
 }
 select option:nth-child(6) {
   background-color: #e76f51;
+}
+
+[id^="sticky_note"] {
+  .sticky-note-delete {
+    display: none;
+  }
+  &:hover {
+    .sticky-note-delete {
+      display: inline;
+      text-decoration: none;
+      color: red;
+    }
+  }
 }
