@@ -111,6 +111,12 @@ ul.dropdown-menu {
 }
 
 .flash {
+	color: white;
+	z-index: 55;
+}
+
+.flash-container {
+	z-index: 50;
   color: white;
 }
 select {
@@ -147,4 +153,5 @@ select option:nth-child(5) {
 }
 select option:nth-child(6) {
   background-color: #e76f51;
+
 }
