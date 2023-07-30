@@ -1,6 +1,6 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import 'actiontext.css';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+@import "actiontext.css";
 
 a.nav-link {
 	font-size: 13px;
@@ -111,4 +111,9 @@ ul.dropdown-menu {
 
 .flash {
 	color: white;
+	z-index: 55;
+}
+
+.flash-container {
+	z-index: 50;
 }
