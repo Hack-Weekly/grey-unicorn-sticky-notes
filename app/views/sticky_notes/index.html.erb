@@ -1,9 +1,9 @@
-<div data-controller="drag" data-drag-url-value='/sticky_notes/:id/location' data-drag-attribute-value="sticky_note[position]">
+<div >
 
 <p style="color: green"><%= notice %></p>
 
   <h1>Sticky notes</h1>
-  <div id="sticky_notes" data-drag-target="list" data-new-value="position">
+  <div id="sticky_notes" data-controller="drag" data-drag-url-value='/sticky_notes/:id/location' data-drag-attribute-value="sticky_note[position]">
     <% @sticky_notes.each do |sticky_note| %>
       <%= render sticky_note, sticky_note: sticky_note %>
       <p>

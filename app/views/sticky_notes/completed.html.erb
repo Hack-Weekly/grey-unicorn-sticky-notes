@@ -1,0 +1,10 @@
+<h1>Completed Sticky notes</h1>
+  <div id="sticky_notes" data-drag-target="list" data-new-value="position">
+    <% @sticky_notes.each.where(status="completed") do |sticky_note| %>
+      <%= render sticky_note, sticky_note: sticky_note %>
+      <p>
+        <%= link_to "Show this sticky note", sticky_note %>
+      </p>
+    <% end %>
+  </div>
+  <%= link_to "New sticky note", new_sticky_note_path %>
