@@ -1,0 +1,7 @@
+
+  <nav class="breadcrumb blogcrumb">
+    <%= link_to fa_icon('pencil-square-o'), edit_sticky_note_path(sticky_note) %>
+    <%= link_to fa_icon('trash'), sticky_note, data: { turbo_method: :delete,
+                        turbo_confirm: 'Are you sure?' } %>
+  </nav>
+
