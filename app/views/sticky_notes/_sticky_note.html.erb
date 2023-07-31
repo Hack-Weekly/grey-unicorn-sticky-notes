@@ -1,7 +1,8 @@
 
 <div class="col">
-  <div id="<%= dom_id(sticky_note) %>" style="background-color: <%= sticky_note.color; %>" class="sticky-note" data-controller="drag"
+  <div id="<%= dom_id(sticky_note) %>" style="background-color: <%= sticky_note.color; %>" class="sticky-note" data-action="mouseover->note#displayDelete mouseout->note#displayDelete" data-controller="drag"
      data-drag-url-value="/sticky_notes/:id/location" data-id="<%= sticky_note.id %>" data-drag-attribute-value="position" data-drag-target="sticky-note">
     <p><%= sticky_note.content %></p>
+    <%= link_to fa_icon('trash'), sticky_note, data: { turbo_method: :delete }, class: "sticky-note-delete" %>
   </div>
 </div>
