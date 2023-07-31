@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @workspace %>
+
+<div>
+  <%= link_to "Edit this workspace", edit_workspace_path(@workspace) %> |
+  <%= link_to "Back to sticky notes", root_path %>
+
+  <%= button_to "Destroy this workspace", @workspace, method: :delete %>
+</div>
