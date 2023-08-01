@@ -29,11 +29,13 @@ class StickyNotesController < ApplicationController
   end
 
   def update
-    if @sticky_note.update(sticky_note_params)
-      redirect_to @sticky_note
-      flash[:success] = "Sticky note was successfully updated."
-    else
-      render :edit
+    respond_to do |format|
+      if @sticky_note.update(sticky_note_params)
+        format.turbo_stream
+        flash[:success] = "Sticky note was successfully updated."
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
