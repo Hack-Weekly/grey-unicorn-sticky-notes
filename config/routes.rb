@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   root to: "dashboard#index"
 
-  resources :workspaces
+  resources :workspaces do
+    resources :whiteboards
+  end
   resources :sticky_notes, except: [:index]
 
 end
