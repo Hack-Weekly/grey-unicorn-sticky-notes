@@ -3,8 +3,8 @@
 
   <%= form_with(model: [@workspace, @whiteboard], local: true) do |form| %>
     <div class="field mb-3">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: 'form-control' %>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
     </div>
 
     <div class="actions">
