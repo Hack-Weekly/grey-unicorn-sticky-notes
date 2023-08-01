@@ -1,4 +1,7 @@
-<div id="<%= dom_id(workspace) %>">
+<%
+=begin%>
+
+ <div id="<%= dom_id(workspace) %>">
   <p>
     <strong>Name:</strong>
     <%= workspace.name %>
@@ -9,5 +12,44 @@
       <strong>User:</strong>
       <%= workspace.owner.name %>
     </p>
+  <% end %>
+</div>
+
+<%
+=end%>
+
+<div id="<%= dom_id(workspace) %>" class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <h3><strong>Name:</strong> <%= workspace.name %></h3>
+    </div>
+
+    <% if user_signed_in? && current_user.has_role?(:admin) %>
+      <div class="col-12">
+        <p><strong>Owner:</strong> <%= workspace.owner.name %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% workspace.whiteboards.each do |whiteboard| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= whiteboard.title %></h5>
+            <!-- Add more whiteboard details here -->
+            <%= link_to 'Show Whiteboard', workspace_whiteboard_path(workspace, whiteboard), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? && current_user.has_role?(:admin) %>
+    <div class="row">
+      <div class="col-12">
+        <%= link_to 'Add New Whiteboard', new_workspace_whiteboard_path(workspace), class: 'btn btn-success' %>
+      </div>
+    </div>
   <% end %>
 </div>

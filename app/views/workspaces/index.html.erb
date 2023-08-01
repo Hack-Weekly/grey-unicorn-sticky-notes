@@ -1,13 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
-<h1>Workspaces</h1>
+<h1 class="mb-4">Workspaces</h1>
 
-<div id="workspaces">
-  <% @workspaces.each do |workspace| %>
-    <%= render workspace %>
-    <p>
-      <%= link_to "Show this workspace", workspace %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div id="workspaces" class="row g-3">
+    <% @workspaces.each do |workspace| %>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <%= render workspace %>
+            <p class="mt-2">
+              <%= link_to "Show this workspace", workspace, class: 'btn btn-primary' %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= link_to "New workspace", new_workspace_path %>
+<%= link_to "New workspace", new_workspace_path, class: 'btn btn-success mt-4' %>

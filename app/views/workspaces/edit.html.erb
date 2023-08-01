@@ -1,9 +1,9 @@
-<h1>Editing workspace</h1>
+<div class="container mt-4">
+  <h1 class="mb-4">Editing Workspace</h1>
 
-<%= render "workspaces/form", workspace: @workspace %>
+  <%= render "workspaces/form", workspace: @workspace %>
 
-<br>
-
-<div>
-  <%= link_to "Cancel", root_path %>
+  <div class="mt-4">
+    <%= link_to "Cancel", root_path, class: 'btn btn-secondary' %>
+  </div>
 </div>
