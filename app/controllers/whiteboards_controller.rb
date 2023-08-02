@@ -11,7 +11,7 @@ class WhiteboardsController < ApplicationController
     authorize @whiteboard
 
     if @whiteboard.save
-      redirect_to @workspace, notice: 'Whiteboard was successfully created.'
+      redirect_to @workspace, notice: "Whiteboard was successfully created."
     else
       render :new
     end
@@ -19,6 +19,11 @@ class WhiteboardsController < ApplicationController
 
   def show
     @whiteboard = Whiteboard.find(params[:id])
+    authorize @whiteboard
+  end
+
+  def completed
+    @whiteboard = Whiteboard.find(params[:whiteboard_id])
     authorize @whiteboard
   end
 

@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "sticky-notes" do %>
+  <%= link_to "Active Notes", workspace_whiteboard_path(id: whiteboard.id) %>
+  <%= render whiteboard.sticky_notes.inactive %>
+<% end %>
