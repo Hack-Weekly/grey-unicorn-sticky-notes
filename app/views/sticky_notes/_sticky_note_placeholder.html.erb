@@ -1,5 +1,5 @@
 <%= turbo_frame_tag id="new-note-#{whiteboard.id}" do %>
-  <%= link_to new_workspace_whiteboard_sticky_note_path(whiteboard_id: whiteboard.id, workspace_id: whiteboard.workspace.id), class: "sticky-note add-note w-100 h-100 d-flex flex-column align-items-center justify-content-center" do %>
+  <%= link_to new_sticky_note_path(whiteboard_id: whiteboard.id), class: "sticky-note add-note w-100 h-100 d-flex flex-column align-items-center justify-content-center" do %>
     <i class="fa fa-xl fa-file-circle-plus"></i><br>
     New Note
   <% end %>
