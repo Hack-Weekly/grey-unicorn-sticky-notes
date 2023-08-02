@@ -175,15 +175,34 @@ select option:nth-child(6) {
 }
 
 [id^="sticky_note"] {
-	.sticky-note-hidden {
-		display: none;
-	}
-	&:hover {
-		.sticky-note-hidden {
-			display: inline;
-			text-decoration: none;
-		}
-	}
+  .edit {
+    color: lightblue;
+    &:hover {
+      color: blue;
+    }
+  }
+  .delete {
+    color: lightpink;
+    &:hover {
+      color: red;
+    }
+  }
+  .complete {
+    color: lightgreen;
+    &:hover {
+      color: green;
+    }
+  }
+  .sticky-note-hidden {
+    display: none;
+  }
+  &:hover {
+    .sticky-note-hidden {
+      display: inline;
+      text-decoration: none;
+    }
+  }
+
 }
 button {
 	background: none;
@@ -195,4 +214,11 @@ button {
 	outline: inherit;
 	height: min-content;
 	width: min-content;
+}
+.hidden {
+  display: none;
+}
+.nav-flex {
+  display: flex;
+  gap: 0.6rem;
 }
