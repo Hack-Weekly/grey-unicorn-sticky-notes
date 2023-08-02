@@ -17,7 +17,7 @@ class StickyNotesController < ApplicationController
 
   def create
     @sticky_note = build_sticky_note_with_owner(sticky_note_params)
-    @whiteboard_id = sticky_note_params[:whiteboard_id]
+    @whiteboard = Whiteboard.find(sticky_note_params[:whiteboard_id])
     authorize(@sticky_note)
     respond_to do |format|
       if @sticky_note.save

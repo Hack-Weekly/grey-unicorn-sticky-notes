@@ -1,1 +1,2 @@
-<%= turbo_stream.remove @sticky_note %>
+<%= turbo_stream.remove @sticky_note unless @sticky_note.active %>
+<%= turbo_stream.replace @sticky_note, @sticky_note if @sticky_note.active %> 

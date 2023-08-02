@@ -1,4 +1,4 @@
-<%= turbo_stream.replace "new-note", @sticky_note %>
-<%= turbo_stream.append "sticky-notes" do %>
-  <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard_id: @whiteboard_id } %>
+<%= turbo_stream.replace "new-note-#{@whiteboard.id}", @sticky_note %>
+<%= turbo_stream.append @whiteboard do %>
+  <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard: @whiteboard } %>
 <% end %>

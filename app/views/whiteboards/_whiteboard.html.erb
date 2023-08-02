@@ -3,12 +3,19 @@
     <div class="board-header">
       <i class="fa fa-lg fa-note-sticky"></i>
       <h3 class="board-title"><%= whiteboard.title %></h3>
+        <nav class="board-nav">
+        <%= link_to whiteboard_completed_path(whiteboard_id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}" }, class: "nav-link text-uppercase text-center" do %>
+          <i class="fa fa-xl fa-list-check"></i><br>Completed
+        <% end %>
+        <%= link_to whiteboard_path(id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}" }, class: "nav-link text-uppercase text-center" do %>
+          <i class="fa fa-xl fa-list-check"></i><br>Active
+        <% end %>
+        </nav>
     </div>
     <div class="card-body" >
-        <%= turbo_frame_tag "sticky-notes", class: "row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3 sticky-note" do %>
-          <%= link_to "Completed", workspace_whiteboard_completed_path(whiteboard_id: whiteboard.id, workspace_id: whiteboard.workspace.id) %>
+        <%= turbo_frame_tag whiteboard, class: "row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3 sticky-note sticky-notes" do %>
           <%= render whiteboard.sticky_notes.active %>
-          <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard_id: whiteboard.id } %>
+          <%= render partial: "sticky_notes/sticky_note_placeholder", locals: { whiteboard: whiteboard } %>
         <% end %>
     </div>
   </div>

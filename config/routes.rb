@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   root to: "dashboard#index"
 
-  resources :workspaces do
-    resources :whiteboards do
-      get "/completed", to: "whiteboards#completed"
-    end
-  end
   resources :sticky_notes, except: [:index]
+  resources :whiteboards do
+    get "/completed", to: "whiteboards#completed"
+  end
+
+  resources :workspaces
 end

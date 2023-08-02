@@ -31,18 +31,29 @@ ul.dropdown-menu {
 }
 
 #workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   #workspace-title {
+    align-self: center;
     color: #4b5567;
     font-weight: 700;
+    border-bottom: 2px solid;
   }
 }
 
 #whiteboards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   .card {
     border: 1px solid #758895;
   }
   .board-header {
-    background: #4b5963;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #a5b5bf;
     padding: 0.5em 1em;
     color: #fff;
     border-radius: 0.3em 0.3em 0 0;
@@ -56,10 +67,14 @@ ul.dropdown-menu {
       font-size: 1.1em;
       font-weight: 700;
     }
+    .board-nav {
+      display: flex;
+      gap: 1rem;
+    }
   }
 }
 
-#sticky-notes {
+.sticky-notes {
   display: flex;
   flex-wrap: wrap;
   .sticky-note {
