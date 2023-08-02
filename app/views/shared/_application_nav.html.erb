@@ -13,11 +13,6 @@
         <% end %>
       </li>
       <li>
-      <li class="nav-item">
-        <%= link_to(new_sticky_note_path, class: "nav-link text-uppercase text-center") do %>
-          <i class="fa fa-xl fa-list-check"></i><br>Completed
-        <% end %>
-      </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= link_to "#", data: { "bs-toggle": "dropdown" }, class: "nav-link dropdown-toggle", role: "button" do %>

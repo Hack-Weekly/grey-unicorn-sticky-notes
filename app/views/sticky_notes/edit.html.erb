@@ -1,6 +1,8 @@
 <h1>Editing sticky note</h1>
 
-<%= render "sticky_notes/form", sticky_note: @sticky_note %>
+<%= turbo_frame_tag @sticky_note do %>
+  <%= render partial: "sticky_notes/form", locals: { sticky_note: @sticky_note,  whiteboard_id: @sticky_note.whiteboard.id } %>
+<% end %>
 
 <br>
 

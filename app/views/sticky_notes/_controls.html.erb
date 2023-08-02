@@ -1,10 +1,9 @@
 <nav class="breadcrumb blogcrumb">
-  <%= link_to fa_icon('pencil-square-o'), edit_sticky_note_path(sticky_note), class: "sticky-note-hidden" %>
-  <%= link_to fa_icon('trash'), sticky_note, data: { turbo_method: :delete,
-                        turbo_confirm: 'Are you sure?' }, class: "sticky-note-hidden" %>
-  <%= form_with model: sticky_note do |form| %>
+  <%= link_to fa_icon('pencil-square-o'), edit_workspace_whiteboard_sticky_note_path(id: sticky_note.id, whiteboard_id: sticky_note.whiteboard.id, workspace_id: sticky_note.whiteboard.workspace.id), class: "sticky-note-hidden" %>
+  <%= link_to fa_icon('trash'), workspace_whiteboard_sticky_note_path(id: sticky_note.id, whiteboard_id: sticky_note.whiteboard.id, workspace_id: sticky_note.whiteboard.workspace.id), data: { turbo_method: :delete,
+                        turbo_confirm: 'Are you sure?', turbo_frame: "_top" }, class: "sticky-note-hidden" %>
+  <%= form_with model: [sticky_note.whiteboard.workspace, sticky_note.whiteboard, sticky_note] do |form| %>
     <%= form.hidden_field :active, value: false  %>
     <%= form.button fa_icon('circle-check'), class: "sticky-note-hidden" %>
   <% end %>
 </nav>
-

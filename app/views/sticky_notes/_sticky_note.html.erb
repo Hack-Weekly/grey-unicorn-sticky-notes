@@ -1,8 +1,9 @@
-
-<div id="<%= dom_id(sticky_note) %>" class="col">
-  <div style="background-color: <%= sticky_note.color; %>" class="sticky-note" data-action="mouseover->note#displayDelete mouseout->note#displayDelete" data-controller="drag"
-     data-drag-url-value="/sticky_notes/:id/location" data-id="<%= sticky_note.id %>" data-drag-attribute-value="position" data-drag-target="sticky-note">
-    <p><%= sticky_note.content %></p>
-    <%= render partial: 'sticky_notes/controls', locals: { sticky_note: } if sticky_note.active %>
+<%= turbo_frame_tag sticky_note do %>
+  <div id="<%= dom_id(sticky_note) %>" class="col">
+    <div style="background-color: <%= sticky_note.color; %>" class="sticky-note" data-action="mouseover->note#displayDelete mouseout->note#displayDelete" data-controller="drag"
+      data-drag-url-value="/sticky_notes/:id/location" data-id="<%= sticky_note.id %>" data-drag-attribute-value="position" data-drag-target="sticky-note">
+        <p><%= sticky_note.content %></p>
+        <%= render partial: 'sticky_notes/controls', locals: { sticky_note: sticky_note } if sticky_note.active %>
+    </div>
   </div>
-</div>
+<% end %>
