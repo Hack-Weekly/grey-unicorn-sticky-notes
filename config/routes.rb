@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   root to: "dashboard#index"
 
   resources :workspaces do
-    resources :whiteboards
+    resources :whiteboards do
+      get "/completed", to: "whiteboards#completed"
+    end
   end
   resources :sticky_notes, except: [:index]
-
 end
