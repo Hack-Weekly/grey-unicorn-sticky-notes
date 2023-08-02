@@ -14,9 +14,9 @@
       action: "keydown.enter->note#submitNote", note_target: "textarea"
     } %>
   </div>
-  
+
   <div>
-    <%= form.select :color, [['', '#fff9af'], ['', '#264653'], ['', '#2A9D8F'], ['', '#E9C46A'], ['', '#F4A261'], ['', '#E76F51']], {}, data: { action: "change->note#changeSelectColor", note_target: "select" }, style: "background-color: #{sticky_note.color};"  %>
+    <%= form.select :color, [['', '#f2f551'], ['', '#c5f0c2'], ['', '#d597f7'], ['', '#f3b9eb'], ['', '#97eaf6'], ['', '#Eda39b']], {}, data: { action: "change->note#changeSelectColor", note_target: "select" }, style: "background-color: #{sticky_note.color};"  %>
   </div>
 
   <div>

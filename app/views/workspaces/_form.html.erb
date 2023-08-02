@@ -1,23 +1,23 @@
 
 <%= form_with(model: workspace, local: true, html: { class: 'my-4' }) do |form| %>
 
-  <% if workspace.errors.any? %>
-    <div class="alert alert-danger">
-      <h4><%= pluralize(workspace.errors.count, "error") %> prohibited this workspace from being saved:</h4>
-      <ul>
-        <% workspace.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if workspace.errors.any? %>
+<div class="alert alert-danger">
+<h4><%= pluralize(workspace.errors.count, "error") %> prohibited this workspace from being saved:</h4>
+<ul>
+<% workspace.errors.each do |error| %>
+<li><%= error.full_message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
+<div class="mb-3">
+<%= form.label :name, class: 'form-label' %>
+<%= form.text_field :name, class: 'form-control' %>
+</div>
 
-  <div>
-    <%= form.submit "Submit", class: 'btn btn-primary' %>
-  </div>
+<div>
+<%= form.submit "Submit", class: 'btn btn-sm btn-outline-primary' %>
+</div>
 <% end %>
