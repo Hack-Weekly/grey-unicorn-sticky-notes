@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     get "/completed", to: "whiteboards#completed"
   end
 
-  resources :workspaces
+  resources :workspaces do
+    resources :whiteboards
+  end
 end
