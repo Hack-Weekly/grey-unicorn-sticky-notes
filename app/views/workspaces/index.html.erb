@@ -3,10 +3,10 @@
 <h1 class="mb-4">Workspaces</h1>
 
 <div class="container-fluid">
-  <div id="workspaces" class="row g-3">
+  <div id="workspaces" class="row row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
     <% @workspaces.each do |workspace| %>
-      <div class="col">
-        <div class="card">
+      <div class="col md-12">
+        <div class="card mb-4">
           <div class="card-body">
             <%= render workspace %>
             <p class="mt-2">
