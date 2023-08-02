@@ -1,4 +1,4 @@
-<nav class="breadcrumb blogcrumb nav-flex">
+<nav class="breadcrumb nav-flex">
   <%= link_to fa_icon('pencil-square-o'), edit_sticky_note_path(id: sticky_note.id), class: "sticky-note-hidden edit" %>
   <%= link_to fa_icon('trash'), sticky_note_path(id: sticky_note.id), data: { turbo_method: :delete,
                         turbo_confirm: 'Are you sure?', turbo_frame: "_top" }, class: "sticky-note-hidden delete" %>
