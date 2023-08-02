@@ -3,12 +3,12 @@
     <div class="board-header">
       <i class="fa fa-lg fa-note-sticky"></i>
       <h3 class="board-title"><%= whiteboard.title %></h3>
-        <nav class="board-nav">
-        <%= link_to whiteboard_completed_path(whiteboard_id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}" }, class: "nav-link text-uppercase text-center" do %>
+        <nav class="board-nav" data-controller="header" data-header-change-class="hidden">
+        <%= link_to whiteboard_completed_path(whiteboard_id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}", action: "click->header#toggle", header_target: "completed" }, class: "nav-link text-uppercase text-center" do %>
           <i class="fa fa-xl fa-list-check"></i><br>Completed
         <% end %>
-        <%= link_to whiteboard_path(id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}" }, class: "nav-link text-uppercase text-center" do %>
-          <i class="fa fa-xl fa-list-check"></i><br>Active
+        <%= link_to whiteboard_path(id: whiteboard.id), data: { turbo_frame: "whiteboard_#{whiteboard.id}", action: "click->header#toggle", header_target: "active" }, class: "hidden nav-link text-uppercase text-center" do %>
+          <i class="fa fa-xl fa-bullseye"></i><br>Active
         <% end %>
         </nav>
     </div>
