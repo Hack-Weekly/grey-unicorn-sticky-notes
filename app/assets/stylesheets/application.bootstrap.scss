@@ -174,6 +174,24 @@ select option:nth-child(6) {
 }
 
 [id^="sticky_note"] {
+  .edit {
+    color: lightblue;
+    &:hover {
+      color: blue;
+    }
+  }
+  .delete {
+    color: lightpink;
+    &:hover {
+      color: red;
+    }
+  }
+  .complete {
+    color: lightgreen;
+    &:hover {
+      color: green;
+    }
+  }
   .sticky-note-hidden {
     display: none;
   }
@@ -197,4 +215,8 @@ button {
 }
 .hidden {
   display: none;
+}
+.nav-flex {
+  display: flex;
+  gap: 0.6rem;
 }
