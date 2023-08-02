@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand sticky-top navbar-light bg-light mb-3">
   <div class="container">
     <%= link_to "Grey-Unicorn", root_path, class: "navbar-brand" %>
+    <span><%= inline_svg_tag 'logo.svg', class: 'logo', style: 'color: black', style: 'width: 60'%></span>
     <ul class="navbar-nav justify-content-end">
       <li class="nav-item">
         <%= link_to(root_path, class: "nav-link text-uppercase text-center") do %>

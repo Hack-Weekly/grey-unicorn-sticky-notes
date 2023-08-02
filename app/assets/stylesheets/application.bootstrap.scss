@@ -175,34 +175,33 @@ select option:nth-child(6) {
 }
 
 [id^="sticky_note"] {
-  .edit {
-    color: lightblue;
-    &:hover {
-      color: blue;
-    }
-  }
-  .delete {
-    color: lightpink;
-    &:hover {
-      color: red;
-    }
-  }
-  .complete {
-    color: lightgreen;
-    &:hover {
-      color: green;
-    }
-  }
-  .sticky-note-hidden {
-    display: none;
-  }
-  &:hover {
-    .sticky-note-hidden {
-      display: inline;
-      text-decoration: none;
-    }
-  }
-
+	.edit {
+		color: lightblue;
+		&:hover {
+			color: blue;
+		}
+	}
+	.delete {
+		color: lightpink;
+		&:hover {
+			color: red;
+		}
+	}
+	.complete {
+		color: lightgreen;
+		&:hover {
+			color: green;
+		}
+	}
+	.sticky-note-hidden {
+		display: none;
+	}
+	&:hover {
+		.sticky-note-hidden {
+			display: inline;
+			text-decoration: none;
+		}
+	}
 }
 button {
 	background: none;
@@ -216,9 +215,14 @@ button {
 	width: min-content;
 }
 .hidden {
-  display: none;
+	display: none;
 }
 .nav-flex {
-  display: flex;
-  gap: 0.6rem;
+	display: flex;
+	gap: 0.6rem;
+}
+
+.logo {
+	width: 60px;
+	color: black;
 }
