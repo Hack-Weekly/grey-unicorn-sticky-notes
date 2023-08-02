@@ -13,9 +13,5 @@ Rails.application.routes.draw do
     get "/completed", to: "whiteboards#completed"
   end
 
-  resources :workspaces do
-    resources :whiteboards do
-      resources :sticky_notes, except: [:index]
-    end
-  end
+  resources :workspaces
 end
