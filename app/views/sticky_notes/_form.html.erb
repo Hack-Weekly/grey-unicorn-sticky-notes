@@ -1,4 +1,4 @@
-<%= form_with(model: sticky_note, class: "sticky-note", html: { style: "background-color: #{sticky_note.color};" }, data: { controller: "note", note_target: "form" }) do |form| %>
+<%= form_with(model: sticky_note, class: "sticky-note sn-form", html: { style: "background-color: #{sticky_note.color};" }, data: { controller: "note", note_target: "form" }) do |form| %>
   <% if sticky_note.errors.any? %>
     <div style="color: red">
       <ul>

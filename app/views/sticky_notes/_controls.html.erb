@@ -1,8 +1,8 @@
-<nav class="breadcrumb nav-flex">
-  <%= link_to fa_icon('pencil-square-o'), edit_sticky_note_path(id: sticky_note.id), class: "sticky-note-hidden edit" %>
+<nav style="background-color: <%= sticky_note.color %>;" class="breadcrumb sn-nav">
   <%= link_to fa_icon('trash'), sticky_note_path(id: sticky_note.id), data: { turbo_method: :delete,
                         turbo_confirm: 'Are you sure?', turbo_frame: "_top" }, class: "sticky-note-hidden delete" %>
-  <%= form_with model: sticky_note do |form| %>
+  <%= link_to fa_icon('pencil-square-o'), edit_sticky_note_path(id: sticky_note.id), class: "sticky-note-hidden edit" %>
+    <%= form_with model: sticky_note do |form| %>
     <%= form.hidden_field :active, value: false  %>
     <%= form.button fa_icon('circle-check'), class: "sticky-note-hidden complete" %>
   <% end %>
