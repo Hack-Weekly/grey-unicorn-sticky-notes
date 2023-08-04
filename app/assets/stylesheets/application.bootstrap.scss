@@ -235,8 +235,12 @@ button {
 .hidden {
   display: none;
 }
-
-.logo {
-  width: 60px;
-  color: black;
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  .logo {
+    width: 9rem;
+    color: black;
+  }
 }
